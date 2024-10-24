@@ -1,52 +1,113 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { FaUtensils } from "react-icons/fa";
+import {
+  FaUtensils,
+  FaUser,
+  FaHome,
+  FaListAlt,
+  FaInfoCircle,
+  FaPhone,
+  FaBars,
+} from "react-icons/fa";
 import Footer from "@/app/Footer";
-import { SiFoodpanda } from "react-icons/si";
-export default function index() {
+
+export default function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 min-h-screen">
       <div className="container mx-auto p-4">
         <header className="flex justify-between items-center py-4">
           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 animate-bounce flex items-center justify-center gap-2">
-            FoodApp 
+            FoodApp
           </h1>
           <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <a
-                  href="#"
-                  className="text-lg text-white hover:text-yellow-300 transition duration-300"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-lg text-white hover:text-yellow-300 transition duration-300"
-                >
-                  Menu
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-lg text-white hover:text-yellow-300 transition duration-300"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-lg text-white hover:text-yellow-300 transition duration-300"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+            <div className="hidden lg:flex space-x-4 gap-2">
+              <a
+                href="#"
+                className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+              >
+                <FaHome /> Home
+              </a>
+              <a
+                href="#"
+                className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+              >
+                <FaListAlt /> Menu
+              </a>
+              <a
+                href="#"
+                className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+              >
+                <FaInfoCircle /> About
+              </a>
+              <a
+                href="#"
+                className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+              >
+                <FaPhone /> Contact
+              </a>
+              <a
+                href="#"
+                className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+              >
+                <FaUser /> Login
+              </a>
+            </div>
+            <div className="lg:hidden">
+              <button
+                className="text-white"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                <FaBars />
+              </button>
+              {menuOpen && (
+                <ul className="flex flex-col space-y-2 mt-2">
+                  <li>
+                    <a
+                      href="#"
+                      className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+                    >
+                      <FaHome /> Home
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+                    >
+                      <FaListAlt /> Menu
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+                    >
+                      <FaInfoCircle /> About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+                    >
+                      <FaPhone /> Contact
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-lg text-white hover:text-yellow-300 transition duration-300 flex items-center gap-2"
+                    >
+                      <FaUser /> Login
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
           </nav>
         </header>
         <main className="mt-8">
@@ -111,10 +172,5 @@ export default function index() {
       </div>
       <Footer />
     </div>
-
-  
- 
   );
-   
-
 }
